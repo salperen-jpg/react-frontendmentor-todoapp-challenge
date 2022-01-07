@@ -1,13 +1,168 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Moon+Dance&family=Open+Sans&family=Roboto:wght@400;700&display=swap');
+
+/* :root { */
+/* --font-primary: 'Josefin Sans', sans-serif;
+  --Very--Light--Gray: hsl(0, 0%, 98%);
+  --Very-Light--Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%); */
+/* DARK THEME COLOR */
+/* --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+  --main-white: #fff;
+  --main-black: #000;
+  --breakpoint-Mobile: 375px;
+  --breakpoint-Desktop: 1440px;
+  --font-size: 18px; */
+/* } */
+
+.ligth-theme {
+  --Very--Light--Gray: hsl(0, 0%, 98%);
+  --Very-Light--Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background: hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --main-white: #fff;
+  --breakpoint-Mobile: 375px;
+  --breakpoint-Desktop: 1440px;
+  --font-size: 18px;
+}
+.dark-theme {
+  --Very-Light--Grayish-Blue: hsl(235, 21%, 11%);
+  --main-white: hsl(235, 24%, 19%);
+  --main-black: hsl(236, 33%, 92%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: var(--font-size);
+  font-family: 'Josefin Sans', sans-serif;
+  background: var(--Very-Light--Grayish-Blue);
+  color: var(--main-black);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+main {
+  min-height: 100vh;
+}
+img {
+  width: 100%;
+  display: block;
+}
+.hero {
+  height: 30vh;
+  background: url('./images/bg-mobile-light.jpg') center/cover no-repeat;
+}
+@media screen and(min-width:768px) {
+  .hero {
+    background: url('./images/bg-desktop-light.jpg') center/cover no-repeat;
+  }
+}
+/* TODO CONTAINER */
+.todo-container {
+  position: relative;
+  top: -11rem;
+  width: 90vw;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.theme {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+}
+nav h1 {
+  font-size: 2rem;
+  color: var(--Light-grayish-Blue);
+  letter-spacing: 0.3rem;
+}
+
+/* TODO FORM */
+.todo-form {
+  margin-top: 1rem;
+}
+.form-input {
+  width: 100%;
+  height: 3rem;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+/* TODOS */
+.todos {
+  width: 100%;
+  margin-top: 2rem;
+  background: var(--main-white);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
+}
+.inner-todo {
+  width: 100%;
+  display: flex;
+  padding: 1rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  font-weight: bold;
+  object-fit: cover;
+  opacity: 0;
+}
+.todo:hover .icon {
+  opacity: 1;
+}
+.btn-container {
+  background: var(--main-white);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 0.8rem;
+}
+.info-btn {
+  margin-left: 0.5rem;
+  font-weight: bold;
+  transition: all 0.3s linear;
+}
+.info-btn:hover {
+  color: var(--Bright-Blue);
 }
