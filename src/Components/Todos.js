@@ -3,14 +3,11 @@ import { useGlobalContext } from '../context';
 import Todo from './Todo';
 
 const Todos = () => {
-  const { todos } = useGlobalContext();
-  // if (todos.length < 1) {
-  //   return <div>There is no item</div>;
-  // }
+  const { filtered } = useGlobalContext();
 
   return (
     <article className='todos'>
-      {todos.map((todo) => {
+      {filtered.map((todo) => {
         return <Todo key={todo.id} {...todo} />;
       })}
     </article>

@@ -9,13 +9,15 @@ import {
   SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_FINISHED,
+  STATUS_HANDLER,
 } from './actions';
 const initialState = {
   todos: [...data],
   isLoading: false,
-  theme: 'ligth-theme',
+  theme: true,
   themeIcon: true,
   todo: '',
+  filtered: [...data],
 };
 const AppContext = React.createContext();
 
@@ -44,6 +46,9 @@ export const AppProvider = ({ children }) => {
   const showFinished = () => {
     dispatch({ type: SHOW_FINISHED });
   };
+  const statusHandler = (id) => {
+    dispatch({ type: STATUS_HANDLER, payload: id });
+  };
   return (
     <AppContext.Provider
       value={{
@@ -55,6 +60,7 @@ export const AppProvider = ({ children }) => {
         showAll,
         showActive,
         showFinished,
+        statusHandler,
       }}
     >
       {children}

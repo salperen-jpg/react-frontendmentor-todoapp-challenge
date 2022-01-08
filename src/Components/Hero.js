@@ -1,7 +1,9 @@
 import React from 'react';
+import { useGlobalContext } from '../context';
 
 const Hero = () => {
-  return <article className='hero'></article>;
+  const { theme } = useGlobalContext();
+  return <article className={`${theme ? 'hero' : 'hero-dark'}`}></article>;
 };
 
 export default Hero;

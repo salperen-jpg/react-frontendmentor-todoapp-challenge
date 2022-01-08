@@ -7,7 +7,7 @@ export default [
   {
     id: 2,
     title: 'Grab some food',
-    done: false,
+    done: true,
   },
   {
     id: 3,

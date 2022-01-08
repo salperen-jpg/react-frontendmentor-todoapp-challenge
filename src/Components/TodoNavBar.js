@@ -7,7 +7,9 @@ const TodoNavBar = () => {
   const { themeIcon, changeTheme, theme } = useGlobalContext();
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    document.documentElement.className = `${
+      theme ? 'light-theme' : 'dark-theme'
+    }`;
   }, [theme]);
   return (
     <nav className='nav'>
