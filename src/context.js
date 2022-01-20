@@ -10,6 +10,7 @@ import {
   SHOW_ACTIVE,
   SHOW_FINISHED,
   STATUS_HANDLER,
+  CLOSE_LOADING,
 } from './actions';
 const initialState = {
   todos: [...data],
@@ -49,6 +50,9 @@ export const AppProvider = ({ children }) => {
   const statusHandler = (id) => {
     dispatch({ type: STATUS_HANDLER, payload: id });
   };
+  const closeLoading = () => {
+    dispatch({ type: CLOSE_LOADING });
+  };
   return (
     <AppContext.Provider
       value={{
@@ -61,6 +65,7 @@ export const AppProvider = ({ children }) => {
         showActive,
         showFinished,
         statusHandler,
+        closeLoading,
       }}
     >
       {children}

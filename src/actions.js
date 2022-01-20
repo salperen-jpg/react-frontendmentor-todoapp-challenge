@@ -6,3 +6,4 @@ export const SHOW_ALL = 'SHOW_ALL';
 export const SHOW_ACTIVE = 'SHOW_ACTIVE';
 export const SHOW_FINISHED = 'SHOW_FINISHED';
 export const STATUS_HANDLER = 'STATUS_HANDLER';
+export const CLOSE_LOADING = 'CLOSE_LOADING';

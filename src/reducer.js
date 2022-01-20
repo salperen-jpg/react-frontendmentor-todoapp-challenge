@@ -7,6 +7,7 @@ import {
   SHOW_ACTIVE,
   SHOW_FINISHED,
   STATUS_HANDLER,
+  CLOSE_LOADING,
 } from './actions';
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -18,7 +19,13 @@ export const reducer = (state, action) => {
         title: state.todo,
         done: false,
       };
-      return { ...state, todos: [...state.todos, newTodo], todo: '' };
+      return {
+        ...state,
+        todos: [...state.todos, newTodo],
+        filtered: [...state.todos, newTodo],
+        isLoading: true,
+        todo: '',
+      };
     case DELETE_TODO:
       return {
         ...state,
@@ -41,7 +48,17 @@ export const reducer = (state, action) => {
     case STATUS_HANDLER:
       return {
         ...state,
-        todos: state.todos.map((item) => {
+        filtered: state.filtered.map((item) => {
+          if (item.id === action.payload) {
+            console.log(item.done);
+            return {
+              ...item,
+              done: !item.done,
+            };
+          }
+          return item;
+        }),
+        todos: state.filtered.map((item) => {
           if (item.id === action.payload) {
             console.log(item.done);
             return {
@@ -52,6 +69,8 @@ export const reducer = (state, action) => {
           return item;
         }),
       };
+    case CLOSE_LOADING:
+      return { ...state, isLoading: false };
 
     default:
       return { ...state };

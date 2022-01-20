@@ -4,7 +4,6 @@ import Todo from './Todo';
 
 const Todos = () => {
   const { filtered } = useGlobalContext();
-
   return (
     <article className='todos'>
       {filtered.map((todo) => {
